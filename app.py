@@ -1,6 +1,7 @@
 # HOST FILE
 
-from flask import *
+from flask import Flask
+from flask_restx import Api, Resource
 
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
@@ -16,5 +17,7 @@ def get_like_contents(id, pw):
 
 @app.route('/api/v1/like_contents')
 def like_contents():
-    def get(self, id, pw):
+    def post(self):
+        global id
+        global pw
         return {"contents": get_like_contents(id, pw)}
